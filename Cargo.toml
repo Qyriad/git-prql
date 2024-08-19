@@ -1,0 +1,26 @@
+[package]
+name = "git-prql"
+version = "0.1.0"
+edition = "2021"
+authors = ["Qyriad <qyriad@qyriad.me>"]
+description = "Query and transform Git objects with PRQL"
+repository = "https://github.com/Qyriad/git-prql"
+readme = true
+license = "MIT"
+keywords = ["git", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+bstr = "1.10.0"
+clap = { version = "4.5.16", features = ["derive", "wrap_help"] }
+clap_mangen = "0.2.23"
+env_logger = "0.11.5"
+gix = { version = "0.64.0", features = ["revision"] }
+log = { version = "0.4.22", features = ["std"] }
+miette = { version = "7.2.0", features = ["fancy"] }
+prqlc = { version = "0.13.0", default-features = false }
+tap = "1.0.1"
+
+[profile.release]
+lto = true
+debug = 1
